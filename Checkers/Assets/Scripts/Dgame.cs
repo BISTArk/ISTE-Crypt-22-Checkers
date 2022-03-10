@@ -434,13 +434,16 @@ public List<List<int>> findPlayerAvailableMoves(int[,] board, bool mandatory_jum
     {
         bool temp = checkWin();
         if(temp){
+            Debug.Log("Game Over!");
             Application.Quit();
         }
-
-        if(playerTurn){
+        else{
+            if(playerTurn){
             playerMove();
-        }else{
-            aIMove();
+            }else{
+                aIMove();
+            }
         }
+        
     }
 }
