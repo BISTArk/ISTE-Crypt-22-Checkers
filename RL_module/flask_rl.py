@@ -1857,18 +1857,3 @@ def getRLMove(board):
     move = play_rl(**args)
 
     return move
-
-
-
-
-# start_time = time.time()
-# args = read_command(['-f', 'sl', '-s', 'k', '-z', './s_ab_3/first_weights', '-l', '0', '-t', '1'])
-# # run_games(**args)
-
-# args['board'] = [[j, j, j, j] for j in [3, 1, 1, 0, 
-#                                                 0, 2, 2, 2]]
-# print(args)
-# play_rl(**args)
-# ctf = [[j, j, j, j] for j in [3, 1, 1, 0, 0, 2, 2, 2]]
-# print(ctf)
-# print(time.time() - start_time)

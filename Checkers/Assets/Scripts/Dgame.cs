@@ -271,6 +271,7 @@ public List<List<int>> findPlayerAvailableMoves(int[,] board, bool mandatory_jum
                 moveSpots.Add(movespot);
             }
         }
+        
     }
 
     void makeaMove(int old_i, int old_j, int new_i, int new_j, int queen_row)
@@ -366,6 +367,8 @@ public List<List<int>> findPlayerAvailableMoves(int[,] board, bool mandatory_jum
 
     bool checkWin()
     {
+        if(findPlayerAvailableMoves(board, mandatory_jumping).Count == 0)
+            return true;
         if (whitePieces * redPieces == 0)
             return true;
         return false;
@@ -376,9 +379,9 @@ public List<List<int>> findPlayerAvailableMoves(int[,] board, bool mandatory_jum
 
             if(selectedPiece){
                 if( selectedPiece.name=="1"){
-                    // foreach(GameObject movespot in moveSpots){
-                    //     Destroy(movespot);
-                    // }
+                    foreach(GameObject movespot in moveSpots){
+                        Destroy(movespot);
+                    }
                     currentPiece = selectedPiece;
                     int i,j;
                     (i,j) = getBoardCoordinates(selectedPiece);
@@ -432,6 +435,7 @@ public List<List<int>> findPlayerAvailableMoves(int[,] board, bool mandatory_jum
 
     void Update()
     {
+        
         bool temp = checkWin();
         if(temp){
             Debug.Log("Game Over!");

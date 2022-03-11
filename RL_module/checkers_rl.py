@@ -216,17 +216,12 @@ def load_agent(agent_type, agent_learn, weights=None, depth=3):
 
     if agent_type == 'k':
         return KeyBoardAgent()
-    elif agent_type == 'ab':
-        return AlphaBetaAgent(depth=depth)
     elif agent_type == 'ql':
         is_learning_agent = True if agent_learn else False
         return QLearningAgent(is_learning_agent=is_learning_agent, weights=weights)
     elif agent_type == 'sl':
         is_learning_agent = True if agent_learn else False
         return SarsaLearningAgent(is_learning_agent=is_learning_agent, weights=weights)
-    elif agent_type == 'ssl':
-        is_learning_agent = True if agent_learn else False
-        return SarsaSoftmaxAgent(is_learning_agent=is_learning_agent, weights=weights)
     else:
         raise Exception('Invalid agent ' + str(agent_type))
 
@@ -573,33 +568,6 @@ def run_games(first_agent, second_agent, first_agent_turn, num_games, update_par
 
 if __name__ == '__main__':
     
-    # game_state = GameState()
-    # game_state.print_board()
-
-    # # get legal moves from this state with respect to the player whose turn is there
-    # moves = game_state.get_legal_actions()
-    # print(moves)
-
-    # game_state = game_state.generate_successor([[2,0], [3,0]])
-    # game_state.print_board()
-
-    # moves = game_state.get_legal_actions()
-    # print(moves)
-
-    # game_state = game_state.generate_successor([[5,1], [4,1]])
-    # game_state.print_board()
-
-    # moves = game_state.get_legal_actions()
-    # print(moves)
-
-    # game_state = game_state.generate_successor([[3,0], [5,1]])
-    # game_state.print_board()
-
-    # moves = game_state.get_legal_actions()
-    # print(moves)
-
-    # print(game_state.player_info())
-
     start_time = time.time()
     args = read_command(['-f', 'sl', '-s', 'k', '-z', './s_ab_3/first_weights', '-l', '0', '-t', '1'])
     run_games(**args)
