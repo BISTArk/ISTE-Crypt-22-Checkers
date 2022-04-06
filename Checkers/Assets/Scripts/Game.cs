@@ -300,9 +300,9 @@ public class Game : MonoBehaviour
                 
                 if (piece = hit.collider.gameObject)
                 {
-                    if (piece.name == "Cylinder")
-                    {
                         Debug.Log("Piece");
+                    if (piece.name == "WhitePiece")
+                    {
                         int i, j;
                         (i, j) = getBoardCoordinates(piece);
                         Debug.Log(i.ToString() + " " + j.ToString());
